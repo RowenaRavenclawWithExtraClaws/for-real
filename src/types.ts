@@ -1,1 +1,1 @@
-export type intBool = number | boolean;
+export type AppState = "landing" | "questions" | "thanks";
