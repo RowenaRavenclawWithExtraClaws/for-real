@@ -17,14 +17,30 @@ export interface TextProps {
 }
 
 export interface ButtonProps {
-  variant: "text" | "outlined" | "contained";
+  variant?: "text" | "outlined" | "contained";
   text: string;
   style: object;
-  clickHandler: any;
+  clickHandler?: any;
 }
 
 export interface LangingPageProps {
   goNext: (param: AppState) => void;
+}
+
+export interface ProgressBarProps {
+  progressValue: number;
+}
+
+export interface TextFromProps {
+  text: string;
+  questionIndx: number;
+}
+
+export interface ChoiceFromProps {
+  text: string;
+  choices: Array<string>;
+  multiple: boolean;
+  questionIndx: number;
 }
 
 export type AppState = "landing" | "questions" | "thanks";
