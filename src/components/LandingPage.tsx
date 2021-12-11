@@ -6,7 +6,6 @@ import { LangingPageProps } from "../types";
 
 const LandingPage = (props: LangingPageProps) => {
   const buttonStyle = {
-    backgroundColor: "black",
     height: "3rem",
     fontSize: "large",
     fontWeight: 600,
