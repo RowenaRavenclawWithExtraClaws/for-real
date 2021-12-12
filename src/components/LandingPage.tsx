@@ -18,6 +18,7 @@ const LandingPage = (props: LangingPageProps) => {
       <img className={styles.logo} src={logo} alt="logo" />
       <CustomText variant="h3" text="Privathaftpflichtversicherung" />
       <CustomButton
+        className={styles.startButton}
         style={buttonStyle}
         variant="contained"
         text="Loslegen"

@@ -14,7 +14,7 @@ const ChoiceForm = (props: ChoiceFromProps) => {
     height: "3rem",
     fontSize: "large",
     fontWeight: 600,
-    marginTop: "5rem",
+    marginTop: "2rem",
     width: "100%",
   };
 

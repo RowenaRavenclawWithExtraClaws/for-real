@@ -19,6 +19,7 @@ export interface TextProps {
 export interface ButtonProps {
   variant?: "text" | "outlined" | "contained";
   text: string;
+  className?: string;
   style: object;
   clickHandler?: any;
 }

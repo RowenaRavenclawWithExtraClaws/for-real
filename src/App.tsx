@@ -4,6 +4,8 @@ import QuestionPage from "./components/QuestionPage";
 import ThanksPage from "./components/ThanksPage";
 import { AppState } from "./types";
 import styles from "./assets/styles/app.module.css";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "./controllers/utility/utility";
 
 function App() {
   const [currentState, setCurrentState] = useState<AppState>("landing");
@@ -16,7 +18,11 @@ function App() {
     thanks: <ThanksPage />,
   };
 
-  return <div className={styles.app}>{states[currentState]}</div>;
+  return (
+    <ThemeProvider theme={theme}>
+      <div className={styles.app}>{states[currentState]}</div>
+    </ThemeProvider>
+  );
 }
 
 export default App;

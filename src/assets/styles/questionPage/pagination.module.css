@@ -1,0 +1,10 @@
+.customPagination {
+  margin-left: 0.8rem;
+}
+
+@media (min-width: 600px) {
+  .customPagination {
+    float: right;
+    margin-right: 0.8rem;
+  }
+}

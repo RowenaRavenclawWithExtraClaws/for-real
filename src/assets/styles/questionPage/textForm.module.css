@@ -1,4 +1,28 @@
+.textForm {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .textForm {
+    width: 60%;
+  }
+}
+
 .textField {
   width: 100%;
   font-size: 28px;
+}
+
+.okButton {
+  width: 100%;
+}
+
+.okButton:hover {
+  background-color: black;
+}
+
+@media (min-width: 600px) {
+  .okButton {
+    width: 3rem;
+  }
 }

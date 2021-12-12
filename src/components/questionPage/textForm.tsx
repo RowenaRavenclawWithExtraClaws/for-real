@@ -10,21 +10,26 @@ const TextForm = (props: TextFromProps) => {
     fontSize: "large",
     fontWeight: 600,
     marginTop: "2rem",
-    width: "100%",
   };
 
   return (
-    <div>
+    <div className={styles.textForm}>
       <div>
         <CustomText variant="h5" text={props.text} />
         <br />
         <TextField
           className={styles.textField}
           variant="standard"
+          autoFocus
           placeholder="Type your answer here..."
         />
       </div>
-      <CustomButton style={buttonStyle} variant="contained" text="Ok" />
+      <CustomButton
+        className={styles.okButton}
+        style={buttonStyle}
+        variant="contained"
+        text="Ok"
+      />
     </div>
   );
 };
