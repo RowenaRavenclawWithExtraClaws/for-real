@@ -13,7 +13,7 @@ const initialState = {
           headline: "Wen möchtest Du versichern?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Meine Familie mit Kindern",
@@ -49,7 +49,7 @@ const initialState = {
           headline: "Bist Du Beamter oder im öffentlichen Dienst angestellt?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja",
@@ -70,7 +70,7 @@ const initialState = {
           headline: "Möchtest Du eine Forderungsausfalldeckung absichern?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja",
@@ -92,7 +92,7 @@ const initialState = {
             "Wie wichtig ist Dir die Absicherung gegen Mietsachschäden?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Wichtig",
@@ -113,7 +113,7 @@ const initialState = {
           headline: "Bist Du Eigentümer einer oder mehrerer Immobilien?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja",
@@ -157,7 +157,7 @@ const initialState = {
           headline: "Gehört Dir eine selbstbewohnte Immobilie?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja, im Inland",
@@ -188,7 +188,7 @@ const initialState = {
           headline: "Hast Du eine oder mehrere vermietete Immobilien?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja, im Inland",
@@ -219,7 +219,7 @@ const initialState = {
           headline: "Möchtest Du in nächster Zeit etwas bauen oder umbauen?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja",
@@ -241,7 +241,7 @@ const initialState = {
             "Wie wichtig ist Dir die Absicherung gegen beruflichen Schlüsselverlust?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Wichtig",
@@ -262,7 +262,7 @@ const initialState = {
           headline: "Möchtest Du den Verlust privater Schlüssel absichern?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja",
@@ -283,7 +283,7 @@ const initialState = {
           headline: "Möchtest Du im Ausland abgesichert sein?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja, bis zu einem Monat",
@@ -309,7 +309,7 @@ const initialState = {
           headline: "Hast Du ein Segelboot?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Bis 4 m²",
@@ -345,7 +345,7 @@ const initialState = {
           headline: "Hast Du ein Motorboot?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Bis 5 PS",
@@ -382,7 +382,7 @@ const initialState = {
             "Möchtest Du bei einem Schadensfall einen Teil selbst bezahlen?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Nein",
@@ -403,7 +403,7 @@ const initialState = {
           headline: "Hast Du aktuell schon eine Privathaftpflichtversicherung?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Ja",
@@ -448,7 +448,7 @@ const initialState = {
             "Wie viele Haftpflichtschäden hattest Du in den letzten 5 Jahren?",
           description: null,
           required: false,
-          multiple: "false",
+          multiple: false,
           choices: [
             {
               label: "Keine",
@@ -485,7 +485,7 @@ const initialState = {
             "Was wäre Dein Wunschtermin für den Beginn der Privathaftpflichtversicherung?",
           description: null,
           required: false,
-          multiline: "false",
+          multiline: false,
           jumps: [],
         },
         {
@@ -495,7 +495,7 @@ const initialState = {
             "Hast Du noch weitere Informationen oder Anmerkungen für uns?",
           description: null,
           required: false,
-          multiline: "true",
+          multiline: true,
           jumps: [],
         },
       ],
@@ -536,6 +536,6 @@ export const selectMetadata = (state) => {
 };
 
 export const selectQuestions = (state) =>
-  (({ questions }) => ({ questions }))(state.questionaire.value.questionaire);
+  state.questionaire.value.questionaire.questions;
 
 export default questionaireSlice.reducer;
