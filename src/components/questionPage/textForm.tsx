@@ -3,6 +3,7 @@ import { TextFromProps } from "../../types";
 import CustomButton from "../common/CustomButton";
 import CustomText from "../common/CustomText";
 import styles from "../../assets/styles/questionPage/textForm.module.css";
+import { handleTextOkButton } from "../../controllers/eventHandlers/eventHandlers";
 
 const TextForm = (props: TextFromProps) => {
   const buttonStyle = {
@@ -21,6 +22,8 @@ const TextForm = (props: TextFromProps) => {
           className={styles.textField}
           variant="standard"
           autoFocus
+          multiline={props.multiline}
+          rows={props.multiline ? 5 : 1}
           placeholder="Type your answer here..."
         />
       </div>
@@ -28,7 +31,10 @@ const TextForm = (props: TextFromProps) => {
         className={styles.okButton}
         style={buttonStyle}
         variant="contained"
-        text="Ok"
+        text={props.last ? "einreichen" : "ok"}
+        clickHandler={() =>
+          handleTextOkButton("", () => {}, props.nextQuestion)
+        }
       />
     </div>
   );

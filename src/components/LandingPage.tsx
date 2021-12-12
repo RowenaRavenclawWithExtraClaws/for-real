@@ -3,14 +3,10 @@ import logo from "../assets/images/insurance-svgrepo-com.svg";
 import CustomText from "./common/CustomText";
 import CustomButton from "./common/CustomButton";
 import { LangingPageProps } from "../types";
-import { useSelector } from "react-redux";
-import { selectMetadata } from "../controllers/reduxSlices/questionaireSlice";
 import { estimateDuration } from "../controllers/utility/utility";
 import secondLogo from "../assets/images/insurance.svg";
 
 const LandingPage = (props: LangingPageProps) => {
-  const questionaireMetadata = useSelector(selectMetadata);
-
   const buttonStyle = {
     height: "3rem",
     fontSize: "large",
@@ -23,10 +19,10 @@ const LandingPage = (props: LangingPageProps) => {
     <div className={styles.landingPage}>
       <div>
         <img className={styles.logo} src={logo} alt="logo" />
-        <CustomText variant="h3" text={questionaireMetadata.name} />
+        <CustomText variant="h3" text={props.questionaireMetadata.name} />
         <CustomText
           variant="subtitle2"
-          text={questionaireMetadata.description}
+          text={props.questionaireMetadata.description}
         />
         <img className={styles.secondLogo} src={secondLogo} />
       </div>
@@ -41,7 +37,7 @@ const LandingPage = (props: LangingPageProps) => {
         <CustomText
           variant="subtitle1"
           text={`🕐 Dauert ${estimateDuration(
-            questionaireMetadata.questionCount
+            props.questionaireMetadata.questionCount
           )} Minuten`}
         />
       </div>

@@ -5,6 +5,7 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
+import { handleChoiceOkButton } from "../../controllers/eventHandlers/eventHandlers";
 import { ChoiceFromProps } from "../../types";
 import CustomButton from "../common/CustomButton";
 import CustomText from "../common/CustomText";
@@ -29,7 +30,8 @@ const ChoiceForm = (props: ChoiceFromProps) => {
               <FormControlLabel
                 key={indx}
                 control={<Checkbox />}
-                label={choice}
+                label={choice.label}
+                value={choice.value}
               />
             ))}
           </FormGroup>
@@ -38,15 +40,22 @@ const ChoiceForm = (props: ChoiceFromProps) => {
             {props.choices.map((choice, indx) => (
               <FormControlLabel
                 key={indx}
-                value={choice}
                 control={<Radio />}
-                label={choice}
+                label={choice.label}
+                value={choice.value}
               />
             ))}
           </RadioGroup>
         )}
       </div>
-      <CustomButton style={buttonStyle} variant="contained" text="Ok" />
+      <CustomButton
+        style={buttonStyle}
+        variant="contained"
+        text={props.last ? "einreichen" : "ok"}
+        clickHandler={() =>
+          handleChoiceOkButton(props.choices[1], () => {}, props.nextQuestion)
+        }
+      />
     </div>
   );
 };
