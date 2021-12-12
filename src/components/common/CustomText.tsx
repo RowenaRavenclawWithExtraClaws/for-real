@@ -4,7 +4,11 @@ import styles from "../../assets/styles/common/text.module.css";
 
 const CustomText = (props: TextProps) => {
   return (
-    <Typography className={styles.customText} variant={props.variant}>
+    <Typography
+      className={styles.customText}
+      variant={props.variant}
+      gutterBottom
+    >
       {props.text}
     </Typography>
   );
