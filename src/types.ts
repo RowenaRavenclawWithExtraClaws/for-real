@@ -25,6 +25,12 @@ export interface ButtonProps {
 }
 
 export interface LangingPageProps {
+  questionaireMetadata: MetaData;
+  goNext: (param: AppState) => void;
+}
+
+export interface QuestionPageProps {
+  questionCount: number;
   goNext: (param: AppState) => void;
 }
 
@@ -35,13 +41,35 @@ export interface ProgressBarProps {
 export interface TextFromProps {
   text: string;
   questionIndx: number;
+  last: boolean;
+  multiline: boolean;
+  nextQuestion: () => void;
 }
 
 export interface ChoiceFromProps {
   text: string;
-  choices: Array<string>;
-  multiple: boolean;
+  choices: Array<choice>;
   questionIndx: number;
+  last: boolean;
+  multiple: boolean;
+  nextQuestion: () => void;
+}
+
+export interface PaginationProps {
+  nextQuestion: () => void;
+  previousQuestion: () => void;
 }
 
 export type AppState = "landing" | "questions" | "thanks";
+
+export type MetaData = {
+  name: string;
+  description: string;
+  questionCount: number;
+};
+
+export type choice = {
+  label: string;
+  value: string;
+  selected: boolean;
+};
