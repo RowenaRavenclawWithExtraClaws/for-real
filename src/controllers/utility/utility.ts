@@ -20,3 +20,10 @@ export const theme = createTheme({
     },
   },
 });
+
+export const estimateDuration = (questionCount: number) => {
+  const oneQuestionEstimate = 0.3; //minute
+  const durationEstimate = Math.floor(oneQuestionEstimate * questionCount);
+
+  return durationEstimate;
+};
