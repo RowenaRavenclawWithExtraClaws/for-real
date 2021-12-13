@@ -515,14 +515,21 @@ export const questionaireSlice = createSlice({
     setQuestionaire: (state, action) => {
       state.value.questionaire = action.payload;
     },
-    answerQuestion: (state, action) => {
+    answerChooseQuestion: (state, action) => {
       const questionIndx = action.payload.questionIndx;
-      state.value.questionaire.questions[questionIndx] = action.payload.answer;
+      state.value.questionaire.questions[questionIndx].choices =
+        action.payload.answer;
+    },
+    answerOpenQuestion: (state, action) => {
+      const questionIndx = action.payload.questionIndx;
+      state.value.questionaire.questions[questionIndx]["answer"] =
+        action.payload.answer;
     },
   },
 });
 
-export const { setQuestionaire } = questionaireSlice.actions;
+export const { setQuestionaire, answerChooseQuestion, answerOpenQuestion } =
+  questionaireSlice.actions;
 
 export const selectMetadata = (state) => {
   const metadata = (({ name, description }) => ({ name, description }))(

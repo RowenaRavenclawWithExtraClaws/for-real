@@ -38,15 +38,16 @@ export interface ProgressBarProps {
   progressValue: number;
 }
 
-export interface TextFromProps {
+export interface TextFormProps {
   text: string;
+  answer: string;
   questionIndx: number;
   last: boolean;
   multiline: boolean;
   nextQuestion: () => void;
 }
 
-export interface ChoiceFromProps {
+export interface ChoiceFormProps {
   text: string;
   choices: Array<choice>;
   questionIndx: number;

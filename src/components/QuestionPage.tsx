@@ -11,18 +11,20 @@ import TextForm from "./questionPage/textForm";
 const QuestionPage = (props: QuestionPageProps) => {
   const questions = useSelector(selectQuestions);
   const [currentQuestionIndx, setCurrentQuestionIndx] = useState<number>(0);
-  const [progressValue, setProgressValue] = useState<number>(
-    (1 / props.questionCount) * 100
-  );
+  const [progressValue, setProgressValue] = useState<number>(0);
 
   const nextQuestion = () => {
-    if (currentQuestionIndx < props.questionCount - 1)
+    if (currentQuestionIndx < props.questionCount - 1) {
       setCurrentQuestionIndx(currentQuestionIndx + 1);
+      setProgressValue(((currentQuestionIndx + 1) / props.questionCount) * 100);
+    }
   };
 
   const previousQuestion = () => {
-    if (currentQuestionIndx > 0)
+    if (currentQuestionIndx > 0) {
       setCurrentQuestionIndx(currentQuestionIndx - 1);
+      setProgressValue(((currentQuestionIndx - 1) / props.questionCount) * 100);
+    }
   };
 
   const chooseForm = () => {
@@ -41,6 +43,7 @@ const QuestionPage = (props: QuestionPageProps) => {
     return (
       <TextForm
         text={questions[currentQuestionIndx].headline}
+        answer={questions[currentQuestionIndx].answer}
         last={currentQuestionIndx === questions.length - 1}
         questionIndx={currentQuestionIndx}
         multiline={questions[currentQuestionIndx].multiline}

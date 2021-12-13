@@ -5,12 +5,19 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { handleChoiceOkButton } from "../../controllers/eventHandlers/eventHandlers";
-import { ChoiceFromProps } from "../../types";
+import { choice, ChoiceFormProps } from "../../types";
 import CustomButton from "../common/CustomButton";
 import CustomText from "../common/CustomText";
 
-const ChoiceForm = (props: ChoiceFromProps) => {
+const ChoiceForm = (props: ChoiceFormProps) => {
+  const [choices, setChoices] = useState<Array<choice>>([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => setChoices(props.choices), [props.choices]);
+
   const buttonStyle = {
     height: "3rem",
     fontSize: "large",
@@ -26,23 +33,39 @@ const ChoiceForm = (props: ChoiceFromProps) => {
         <br />
         {props.multiple ? (
           <FormGroup>
-            {props.choices.map((choice, indx) => (
+            {choices.map((choice, indx) => (
               <FormControlLabel
                 key={indx}
                 control={<Checkbox />}
                 label={choice.label}
                 value={choice.value}
+                checked={choice.selected}
+                onChange={(_, checked) =>
+                  setChoices([
+                    ...choices.slice(0, indx),
+                    { ...choice, selected: checked },
+                    ...choices.slice(indx + 1, choices.length),
+                  ])
+                }
               />
             ))}
           </FormGroup>
         ) : (
           <RadioGroup aria-label="question" name="radio-buttons-group">
-            {props.choices.map((choice, indx) => (
+            {choices.map((choice, indx) => (
               <FormControlLabel
                 key={indx}
                 control={<Radio />}
                 label={choice.label}
                 value={choice.value}
+                checked={choice.selected}
+                onChange={(_, checked) =>
+                  setChoices([
+                    ...choices.slice(0, indx),
+                    { ...choice, selected: checked },
+                    ...choices.slice(indx + 1, choices.length),
+                  ])
+                }
               />
             ))}
           </RadioGroup>
@@ -53,7 +76,12 @@ const ChoiceForm = (props: ChoiceFromProps) => {
         variant="contained"
         text={props.last ? "einreichen" : "ok"}
         clickHandler={() =>
-          handleChoiceOkButton(props.choices[1], () => {}, props.nextQuestion)
+          handleChoiceOkButton(
+            props.questionIndx,
+            choices,
+            dispatch,
+            props.nextQuestion
+          )
         }
       />
     </div>
