@@ -45,6 +45,7 @@ export interface TextFormProps {
   last: boolean;
   multiline: boolean;
   nextQuestion: () => void;
+  nextPage: (newState: AppState) => void;
 }
 
 export interface ChoiceFormProps {
@@ -54,6 +55,7 @@ export interface ChoiceFormProps {
   last: boolean;
   multiple: boolean;
   nextQuestion: () => void;
+  nextPage: (newState: AppState) => void;
 }
 
 export interface PaginationProps {

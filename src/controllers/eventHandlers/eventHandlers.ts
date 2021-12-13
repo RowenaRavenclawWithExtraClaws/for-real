@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { choice } from "../../types";
+import { AppState, choice } from "../../types";
 import {
   answerChooseQuestion,
   answerOpenQuestion,
@@ -30,21 +30,29 @@ const answerTextQuestion = (
   );
 
 export const handleChoiceOkButton = (
+  last: boolean,
   questionIndx: number,
   answer: Array<choice>,
   dispatch: Dispatch<any>,
-  nextQuestion: () => void
+  nextQuestion: () => void,
+  nextPage: (newState: AppState) => void
 ) => {
   answerChoiceQuestion(questionIndx, answer, dispatch);
-  nextQuestion();
+
+  if (last) nextPage("thanks");
+  else nextQuestion();
 };
 
 export const handleTextOkButton = (
+  last: boolean,
   questionIndx: number,
   answer: string,
   dispatch: Dispatch<any>,
-  nextQuestion: () => void
+  nextQuestion: () => void,
+  nextPage: (newState: AppState) => void
 ) => {
   answerTextQuestion(questionIndx, answer, dispatch);
-  nextQuestion();
+
+  if (last) nextPage("thanks");
+  else nextQuestion();
 };

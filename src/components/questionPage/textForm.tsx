@@ -22,8 +22,6 @@ const TextForm = (props: TextFormProps) => {
     marginTop: "2rem",
   };
 
-  console.log(props.text);
-
   return (
     <div className={styles.textForm}>
       <div>
@@ -47,10 +45,12 @@ const TextForm = (props: TextFormProps) => {
         text={props.last ? "einreichen" : "ok"}
         clickHandler={() =>
           handleTextOkButton(
+            props.last,
             props.questionIndx,
             answer,
             dispatch,
-            props.nextQuestion
+            props.nextQuestion,
+            props.nextPage
           )
         }
       />

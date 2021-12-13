@@ -11,6 +11,7 @@ import { handleChoiceOkButton } from "../../controllers/eventHandlers/eventHandl
 import { choice, ChoiceFormProps } from "../../types";
 import CustomButton from "../common/CustomButton";
 import CustomText from "../common/CustomText";
+import styles from "../../assets/styles/questionPage/textForm.module.css";
 
 const ChoiceForm = (props: ChoiceFormProps) => {
   const [choices, setChoices] = useState<Array<choice>>([]);
@@ -23,7 +24,6 @@ const ChoiceForm = (props: ChoiceFormProps) => {
     fontSize: "large",
     fontWeight: 600,
     marginTop: "2rem",
-    width: "100%",
   };
 
   return (
@@ -72,15 +72,18 @@ const ChoiceForm = (props: ChoiceFormProps) => {
         )}
       </div>
       <CustomButton
+        className={styles.okButton}
         style={buttonStyle}
         variant="contained"
-        text={props.last ? "einreichen" : "ok"}
+        text={props.last ? "vorlegen" : "ok"}
         clickHandler={() =>
           handleChoiceOkButton(
+            props.last,
             props.questionIndx,
             choices,
             dispatch,
-            props.nextQuestion
+            props.nextQuestion,
+            props.nextPage
           )
         }
       />

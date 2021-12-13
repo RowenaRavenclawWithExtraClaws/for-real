@@ -37,6 +37,7 @@ const QuestionPage = (props: QuestionPageProps) => {
           choices={questions[currentQuestionIndx].choices}
           multiple={questions[currentQuestionIndx].multiple}
           nextQuestion={nextQuestion}
+          nextPage={props.goNext}
         />
       );
 
@@ -48,6 +49,7 @@ const QuestionPage = (props: QuestionPageProps) => {
         questionIndx={currentQuestionIndx}
         multiline={questions[currentQuestionIndx].multiline}
         nextQuestion={nextQuestion}
+        nextPage={props.goNext}
       />
     );
   };

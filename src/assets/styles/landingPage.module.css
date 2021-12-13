@@ -32,6 +32,6 @@
   }
 
   .startButton {
-    width: 8rem;
+    width: fit-content;
   }
 }
