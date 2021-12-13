@@ -61,6 +61,8 @@ export interface ChoiceFormProps {
 export interface PaginationProps {
   nextQuestion: () => void;
   previousQuestion: () => void;
+  first: boolean;
+  last: boolean;
 }
 
 export type AppState = "landing" | "questions" | "thanks";

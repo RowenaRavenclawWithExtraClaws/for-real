@@ -19,6 +19,24 @@ const ChoiceForm = (props: ChoiceFormProps) => {
 
   useEffect(() => setChoices(props.choices), [props.choices]);
 
+  const handleMultiChoice = (checked: boolean, indx: number, choice: choice) =>
+    setChoices([
+      ...choices.slice(0, indx),
+      { ...choice, selected: checked },
+      ...choices.slice(indx + 1, choices.length),
+    ]);
+
+  const handleSingleChoice = (checked: boolean, indx: number, choice: choice) =>
+    setChoices([
+      ...choices
+        .slice(0, indx)
+        .map((choice) => ({ ...choice, selected: false })),
+      { ...choice, selected: checked },
+      ...choices
+        .slice(indx + 1, choices.length)
+        .map((choice) => ({ ...choice, selected: false })),
+    ]);
+
   const buttonStyle = {
     height: "3rem",
     fontSize: "large",
@@ -41,11 +59,7 @@ const ChoiceForm = (props: ChoiceFormProps) => {
                 value={choice.value}
                 checked={choice.selected}
                 onChange={(_, checked) =>
-                  setChoices([
-                    ...choices.slice(0, indx),
-                    { ...choice, selected: checked },
-                    ...choices.slice(indx + 1, choices.length),
-                  ])
+                  handleMultiChoice(checked, indx, choice)
                 }
               />
             ))}
@@ -60,11 +74,7 @@ const ChoiceForm = (props: ChoiceFormProps) => {
                 value={choice.value}
                 checked={choice.selected}
                 onChange={(_, checked) =>
-                  setChoices([
-                    ...choices.slice(0, indx),
-                    { ...choice, selected: checked },
-                    ...choices.slice(indx + 1, choices.length),
-                  ])
+                  handleSingleChoice(checked, indx, choice)
                 }
               />
             ))}

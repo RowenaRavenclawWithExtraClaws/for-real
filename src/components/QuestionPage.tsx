@@ -61,6 +61,8 @@ const QuestionPage = (props: QuestionPageProps) => {
       <CustomPagination
         nextQuestion={nextQuestion}
         previousQuestion={previousQuestion}
+        first={currentQuestionIndx === 0}
+        last={currentQuestionIndx === questions.length - 1}
       />
     </>
   );
