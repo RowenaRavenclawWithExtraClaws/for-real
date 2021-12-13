@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+## For Real
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For Real is one of a kind mobile-first questionnaire web application. It enables users to answer quickly and seemlessly for a short period of time. you can start using it [here](https://th-crypto-report.vercel.app/)
 
-## Available Scripts
+## Run locally
 
-In the project directory, you can run:
+Traditional way
 
-### `yarn start`
+- Clone the repository
+- Navigate to the frontend folder `cd backend`
+- Run `npm start`
+- Visit `localhost:3000` to see this beauty
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The docker way
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Run `docker build --tag questionnaire-docker-image .` to build docker image using the docker file.
+- Run `docker run questionnaire-docker-image` to run the built image.
+- Visit `localhost:3000` to see this beauty. AGAIN!
 
-### `yarn test`
+## Test
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `npm test` to see testing results.
 
-### `yarn build`
+## Technologies used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js `^17.0.2`
+- Redux `^4.1.2`
+- TypeScript `^4.1.2`
+- Bootstrap `^5.1.3`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Architecture
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Suggested improvements
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Implement test mockups for the redux store.
+- Add sophisticated animation.
