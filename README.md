@@ -30,7 +30,7 @@ Run `npm test` to see testing results.
 
 ## Architecture
 
-[!arch](https://github.com/RowenaRavenclawWithExtraClaws/for-real/blob/main/src/assets/images/arch.png)
+![arch](https://github.com/RowenaRavenclawWithExtraClaws/for-real/blob/main/src/assets/images/arch.png)
 
 ## Suggested improvements
 
