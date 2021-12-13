@@ -7,7 +7,7 @@ For Real is one of a kind mobile-first questionnaire web application. It enables
 Traditional way
 
 - Clone the repository
-- Navigate to the frontend folder `cd backend`
+- Run `npm install` to install dependencies
 - Run `npm start`
 - Visit `localhost:3000` to see this beauty
 
