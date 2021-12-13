@@ -24,7 +24,7 @@ const LandingPage = (props: LangingPageProps) => {
           variant="subtitle2"
           text={props.questionaireMetadata.description}
         />
-        <img className={styles.secondLogo} src={secondLogo} />
+        <img className={styles.secondLogo} src={secondLogo} alt="logo2" />
       </div>
       <div>
         <CustomButton

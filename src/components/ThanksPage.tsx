@@ -6,7 +6,7 @@ const ThanksPage = () => {
   return (
     <div className={styles.landingPage}>
       <div>
-        <img className={styles.secondLogo} src={secondLogo} />
+        <img className={styles.secondLogo} src={secondLogo} alt="logo2" />
       </div>
       <br />
       <CustomText
