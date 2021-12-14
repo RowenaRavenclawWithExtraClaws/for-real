@@ -13,8 +13,7 @@ Traditional way
 
 The docker way
 
-- Run `docker build --tag questionnaire-docker-image .` to build docker image using the docker file.
-- Run `docker run questionnaire-docker-image` to run the built image.
+- Run `docker-compose up` to build and run the image
 - Visit `localhost:3000` to see this beauty. AGAIN!
 
 ## Test
